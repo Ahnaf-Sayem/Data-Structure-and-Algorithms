@@ -1,2 +1,3 @@
 # Data-Structure-and-Algorithms
-My journey into d.s.a  problems
+Hey everyone,
+I deeply enjoy solving different dsa problems and if you want to check in different solutions about dsa problems over 14 patterns here it is
