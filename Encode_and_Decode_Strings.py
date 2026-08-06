@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def __init__(self):
         # Generates all 256 characters matching values 0 through 255
@@ -9,12 +11,16 @@ class Solution:
             self.dict_encoding[element] = self.i
             self.dict_decoding[self.i] = element
             self.i += 1
-
+        self.dict_encoding[''] = 256
+        self.dict_decoding[256] = ''
 
     def encode(self, strs: List[str]) -> str:
         self.parts = []
         self.actual = []
         for element in strs:
+         if len(element) == 0:
+                self.actual.append(str(self.dict_encoding [element]))
+         else:
           for letter in element:
             conv_to_int = str(self.dict_encoding[letter])
             self.parts.append(conv_to_int)
@@ -71,5 +77,3 @@ class Solution:
 
             self.i += 1
         return self.actual
-instance = Solution()
-print(instance.decode("104_97_122_101_108@97_104_110_97_102"))
