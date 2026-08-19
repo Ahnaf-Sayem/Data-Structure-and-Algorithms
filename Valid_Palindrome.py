@@ -1,25 +1,15 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        str = []
-        for letter in s:
-            if letter.isalpha() == True or letter.isnumeric() == True:
-                str.append(letter)
-
-        str = ''.join(str)
-        left = 0
-        right =  len(str) - 1
-        if len(str) > 0:
-
-         while str[left].lower() == str[right].lower():
-            if left ==  right:
-                return True
-            if left == right + 1:
-                return True
-            left += 1
-            right -= 1
-         return False
-        else:
-            return True
-
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l < r and not self.Is_alpha_numeric(s[l]):
+                l += 1
+            while l < r and not self.Is_alpha_numeric(s[r]):
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+        return True
+    def Is_alpha_numeric(self,c):
+        return (ord('a') <= ord(c.lower()) <= ord('z') or ord('0') <= ord(c) <= ord('9'))
 example = Solution()
-print(example.isPalindrome("0P"))
+print(example.isPalindrome("           "))
