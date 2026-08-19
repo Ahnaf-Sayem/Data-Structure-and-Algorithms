@@ -8,8 +8,10 @@ class Solution:
                 r -= 1
             if s[l].lower() != s[r].lower():
                 return False
+            l, r = l + 1, r - 1
+
         return True
     def Is_alpha_numeric(self,c):
         return (ord('a') <= ord(c.lower()) <= ord('z') or ord('0') <= ord(c) <= ord('9'))
 example = Solution()
-print(example.isPalindrome("           "))
+print(example.isPalindrome(" "))
